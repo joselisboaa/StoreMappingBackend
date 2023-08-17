@@ -2,6 +2,7 @@ package com.map.store.api.controller;
 
 import com.map.store.domain.model.Store;
 import com.map.store.domain.service.IStoreService;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("store/")
+@Resource
 public class StoreController {
     @Autowired
     private IStoreService storeService;
