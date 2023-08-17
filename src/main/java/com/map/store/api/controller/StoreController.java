@@ -35,6 +35,20 @@ public class StoreController {
     public ResponseEntity<Store> create(@RequestBody Store store) {
         Store createdStore = storeService.create(store);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(store);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdStore);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<Store> update(@RequestBody Store store, @PathVariable Long id) {
+        Store updatedStore = storeService.update(store, id);
+
+        return ResponseEntity.status(HttpStatus.OK).body(updatedStore);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        storeService.deleteById(id);
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
