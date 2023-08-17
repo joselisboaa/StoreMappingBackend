@@ -1,14 +1,14 @@
 FROM eclipse-temurin:17-jammy
 
-RUN addgroup demogroup; adduser  --ingroup demogroup --disabled-password demo
-USER demo
-
 WORKDIR /app
 COPY .mvn/ .mvn/
 COPY mvnw pom.xml ./
 
 RUN chmod +x ./mvnw
-RUN dos2unix mvnw && ./mvnw dependency:go-offline
+RUN ./mvnw dependency:go-offline
+
+RUN addgroup demogroup; adduser  --ingroup demogroup --disabled-password demo
+USER demo
 
 COPY src ./src
 
