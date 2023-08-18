@@ -6,7 +6,7 @@ COPY .mvn/ .mvn/
 COPY mvnw pom.xml ./
 
 RUN chmod +x ./mvnw
-RUN ./mvnw dependency:go-offline
+RUN ./mvnw dependency:go-offline -e
 
 RUN addgroup demogroup; adduser  --ingroup demogroup --disabled-password demo
 USER demo
