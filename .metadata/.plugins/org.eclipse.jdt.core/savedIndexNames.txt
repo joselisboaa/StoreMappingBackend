@@ -1,0 +1,21 @@
+INDEX VERSION 1.134+/home/neto/eclipse-workspace/StoreMappingBackend/.metadata/.plugins/org.eclipse.jdt.core
+1343501505.index
+1969770167.index
+3895191110.index
+3308480324.index
+4137437748.index
+1079810346.index
+4097826183.index
+2080001095.index
+2078267704.index
+1865797976.index
+3840879632.index
+3939171498.index
+3271201070.index
+4170707789.index
+1719913182.index
+2748390503.index
+1962697860.index
+62549359.index
+3808448001.index
+2855416068.index
