@@ -37,14 +37,12 @@ public class CityServiceImpl implements ICityService {
 
      public City update(City newCityData, Long id) {
          try {
-             City clientData = cityRepository.getReferenceById(id);
-             updateCityData(clientData, newCityData);
+             City cityData = cityRepository.findById(id).get();
+             updateCityData(cityData, newCityData);
              
-             if (clientData == null) {
-                 throw new ResourceNotFoundException("Teste");
-             }
+             cityRepository.save(cityData);
 
-             return clientData;
+             return cityData;
          } catch (EntityNotFoundException error) {
              throw new ResourceNotFoundException(CITY_NOT_EXIST);
          }

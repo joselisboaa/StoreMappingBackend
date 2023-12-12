@@ -41,8 +41,10 @@ public class StoreServiceImpl implements IStoreService {
     @Override
     public Store update(Store newStoreData, Long id) {
         try {
-            Store storeData = storeRepository.getReferenceById(id);
+            Store storeData = storeRepository.findById(id).get();
             updateStoreData(storeData, newStoreData);
+            
+            storeRepository.save(storeData);
 
             return storeData;
         } catch (EntityNotFoundException error) {

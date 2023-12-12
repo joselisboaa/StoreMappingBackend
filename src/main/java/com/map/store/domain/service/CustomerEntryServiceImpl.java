@@ -43,8 +43,10 @@ public class CustomerEntryServiceImpl implements ICustomerEntryService {
     @Override
     public CustomerEntry update(CustomerEntry newCustomerEntryData, Long id) {
         try {
-            CustomerEntry customerEntryData = customerEntryRepository.getReferenceById(id);
+            CustomerEntry customerEntryData = customerEntryRepository.findById(id).get();
             updateCustomerEntryData(customerEntryData, newCustomerEntryData);
+            
+            customerEntryRepository.save(customerEntryData);
 
             return customerEntryData;
         } catch (EntityNotFoundException error) {

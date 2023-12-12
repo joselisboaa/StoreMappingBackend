@@ -37,14 +37,12 @@ public class AccountServiceImpl implements IAccountService {
 
      public Account update(Account newAccountData, Long id) {
          try {
-             Account clientData = accountRepository.getReferenceById(id);
-             updateAccountData(clientData, newAccountData);
+             Account accountData = accountRepository.findById(id).get();
+             updateAccountData(accountData, newAccountData);
              
-             if (clientData == null) {
-                 throw new ResourceNotFoundException("Teste");
-             }
+             accountRepository.save(accountData);
 
-             return clientData;
+             return accountData;
          } catch (EntityNotFoundException error) {
              throw new ResourceNotFoundException(ACCOUNT_NOT_EXIST);
          }
