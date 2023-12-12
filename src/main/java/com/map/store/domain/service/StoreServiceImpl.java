@@ -70,5 +70,6 @@ public class StoreServiceImpl implements IStoreService {
         oldStoreData.setCity(newStoreData.getCity());
         oldStoreData.setLatitude(newStoreData.getLatitude());
         oldStoreData.setLongitude(newStoreData.getLongitude());
+        oldStoreData.setName(newStoreData.getName());
     }
 }
