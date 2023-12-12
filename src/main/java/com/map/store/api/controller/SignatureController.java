@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("signatures/")
 @Resource
+@CrossOrigin(origins = "*")
 public class SignatureController {
     @Autowired
     private ISignatureService signatureService;
