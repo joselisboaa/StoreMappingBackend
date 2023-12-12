@@ -24,6 +24,7 @@ public class Store implements Serializable {
     private String city;
     private String latitude;
     private String longitude;
+    private String name;
     
     public Long getId() {
 		return id;
@@ -51,5 +52,13 @@ public class Store implements Serializable {
 	
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }
