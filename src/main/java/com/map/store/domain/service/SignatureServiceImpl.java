@@ -37,14 +37,12 @@ public class SignatureServiceImpl implements ISignatureService {
 
      public Signature update(Signature newSignatureData, Long id) {
          try {
-             Signature clientData = signatureReposity.getReferenceById(id);
-             updateSignatureData(clientData, newSignatureData);
+             Signature signatureData = signatureReposity.findById(id).get();
+             updateSignatureData(signatureData, newSignatureData);
              
-             if (clientData == null) {
-                 throw new ResourceNotFoundException("Teste");
-             }
+             signatureReposity.save(signatureData)
 
-             return clientData;
+             return signatureData;
          } catch (EntityNotFoundException error) {
              throw new ResourceNotFoundException(SIGNATURE_NOT_EXIST);
          }
