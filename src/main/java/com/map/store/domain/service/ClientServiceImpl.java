@@ -39,6 +39,10 @@ public class ClientServiceImpl implements IClientService {
          try {
              Client clientData = clientRepository.getReferenceById(id);
              updateClientData(clientData, newClientData);
+             
+             if (clientData == null) {
+                 throw new ResourceNotFoundException("Teste");
+             }
 
              return clientData;
          } catch (EntityNotFoundException error) {
