@@ -4,6 +4,11 @@ Repositório do Projeto do backend de TJW
 ## Sobre
 O sistema proposto a ser desenvolvido se trata de um sistema interno de uma empresa de gerenciamento de lojas, onde seriam registrado as lojas, clientes, entradas, cidades das lojas, tudo isso seria registrado e gerenciado e as lojas poderiam ser vistas em um mapa, facilitando a visualização e gerenciamento das lojas.
 
+## Requisitos
+- Java 17 ou superior
+- Postgresql
+- Um banco com nome de ```store_db```
+
 ## Instalação
 Primeiramente utilize o comando
 ```
