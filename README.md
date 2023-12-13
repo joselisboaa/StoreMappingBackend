@@ -27,8 +27,7 @@ Caso esteja em outro SO será necessário fazer os inserts manualmente (estará 
 Utilize alguma IDE e abra o projeto na sua IDE de preferência, após isso basta iniciar a aplicação.
 
 ### Modelagem do banco de dados
-![Modelo Banco de Dados](https://github.com/joselisboaa/StoreMappingBackend/assets/67613937/c71af9ba-fc59-4ed8-adb7-80f25f91f936)
-
+![image](https://github.com/joselisboaa/StoreMappingBackend/assets/67613937/d77c3b74-5dbc-456c-877a-db9929e17221)
 
 
 INSERTS NO BANCO:
