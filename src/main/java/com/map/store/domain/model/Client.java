@@ -25,6 +25,8 @@ public class Client implements Serializable {
 	@OneToOne
 	@JsonIgnore
 	private Signature signature;
+	@OneToOne
+	private Store store;
 	
 	public Client() {};
     
