@@ -4,10 +4,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Data
@@ -19,8 +22,19 @@ public class Client implements Serializable {
     private Long id;
 	@NotBlank
     private String name;
+	@OneToOne
+	@JsonIgnore
+	private Signature signature;
+	
+	public Client() {};
     
-    public Long getId() {
+    public Client(Long id, @NotBlank String name, Signature signature) {
+		this.id = id;
+		this.name = name;
+		this.signature = signature;
+	}
+
+	public Long getId() {
 		return id;
 	}
     

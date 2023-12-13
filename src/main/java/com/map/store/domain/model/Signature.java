@@ -24,6 +24,14 @@ public class Signature implements Serializable {
     @OneToOne
     private City city;
     
+    public Signature() {};
+    
+	public Signature(Long id, Client client, City city) {
+		this.id = id;
+		this.client = client;
+		this.city = city;
+	}
+
 	public Long getId() {
 		return id;
 	}

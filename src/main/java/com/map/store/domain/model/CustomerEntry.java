@@ -19,7 +19,16 @@ public class CustomerEntry implements Serializable {
     private String month;
     private Integer day;
     private Integer customerQuantity;
+   
+    public CustomerEntry() {};
     
+	public CustomerEntry(Long id, String month, Integer day, Integer customerQuantity) {
+		this.id = id;
+		this.month = month;
+		this.day = day;
+		this.customerQuantity = customerQuantity;
+	}
+
 	public Long getId() {
 		return id;
 	}

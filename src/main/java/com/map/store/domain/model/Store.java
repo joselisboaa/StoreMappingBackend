@@ -1,33 +1,49 @@
 package com.map.store.domain.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-@Data
-@Getter
-@Setter
 public class Store implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String city;
-    private String latitude;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "city_id")	
+    private City city;
+
+	private String latitude;
     private String longitude;
     private String name;
     
-    public Long getId() {
+    public Store() {};
+        
+    public Store(Long id, String latitude, String longitude, String name) {
+		this.id = id;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.name = name;
+	}
+
+	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getLatitude() {
@@ -46,11 +62,11 @@ public class Store implements Serializable {
 		this.longitude = longitude;
 	}
     
-	public String getCity() {
+	public City getCity() {
 		return city;
 	}
 	
-	public void setCity(String city) {
+	public void setCity(City city) {
 		this.city = city;
 	}
 

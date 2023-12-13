@@ -23,6 +23,14 @@ public class Account implements Serializable {
 	private String login;
     private String password;
     
+    public Account() {};
+    
+    public Account(Long id, String login, String password) {
+		this.id = id;
+		this.login = login;
+		this.password = password;
+	}
+
     public Long getId() {
 		return id;
 	}
