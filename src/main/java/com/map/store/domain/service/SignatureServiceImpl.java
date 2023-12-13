@@ -40,7 +40,7 @@ public class SignatureServiceImpl implements ISignatureService {
              Signature signatureData = signatureReposity.findById(id).get();
              updateSignatureData(signatureData, newSignatureData);
              
-             signatureReposity.save(signatureData)
+             signatureReposity.save(signatureData);
 
              return signatureData;
          } catch (EntityNotFoundException error) {
