@@ -1,0 +1,52 @@
+version: "3.7"
+
+services:
+  postgres_db:
+    container_name: store_database
+    image: postgres:14.1-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: store_db
+
+  backend:
+    image: store_back:1.0.0
+    restart: always
+    container_name: store_back
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres_db
+    environment:
+      spring.datasource.url: jdbc:postgresql://postgres_db 	:5432/store_db
+      spring.datasource.username: postgres
+      spring.datasource.password: postgres
+      spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation: true
+      spring.jpa.hibernate.ddl-auto: update
+      spring.jpa.show-sql: true
+      spring.jpa.properties.hibernate.format_sql: true
+      spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
+      spring.devtools.livereload.enabled: true
+      spring.devtools.restart.enabled: true
+      spring.devtools.restart.poll-interval: 2s
+      spring.devtools.restart.quiet-period: 1s
+
+# frontend:
+#	image: store_front:1.0.0 
+#	restart: always
+#	container_name: store_front
+#	ports:
+#		- "3000:3000"
+#	depends_on: 
+#		- backend
+#	volumes:
+#		- .:/home/node/app
+#		- ./node_modules:/home/node/app/node_modules
+#	enviroment:
+#		BACKEND_URL: http://backend:8080
+#		NEXT_PUBLIC_ACL_GOOGLE_API_KEY: "AIzaSyBV7UtHiaqt0-1rYCn09o5BY5BhGiyztRA"
