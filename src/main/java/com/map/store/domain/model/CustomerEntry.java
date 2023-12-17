@@ -1,12 +1,12 @@
 package com.map.store.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,7 +19,10 @@ public class CustomerEntry implements Serializable {
     private String month;
     private Integer day;
     private Integer customerQuantity;
-   
+	@OneToMany(mappedBy = "customerEntry", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Store> stores = new ArrayList<Store>();
+
     public CustomerEntry() {};
     
 	public CustomerEntry(Long id, String month, Integer day, Integer customerQuantity) {

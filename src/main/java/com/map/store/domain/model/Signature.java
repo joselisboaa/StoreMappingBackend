@@ -21,15 +21,12 @@ public class Signature implements Serializable {
     private Long id;
     @OneToOne
     private Client client;
-    @OneToOne
-    private City city;
     
     public Signature() {};
     
 	public Signature(Long id, Client client, City city) {
 		this.id = id;
 		this.client = client;
-		this.city = city;
 	}
 
 	public Long getId() {
@@ -42,13 +39,5 @@ public class Signature implements Serializable {
 	
 	public void setClient(Client client) {
 		this.client = client;
-	}
-	
-	public City getCity() {
-		return city;
-	}
-	
-	public void setCity(City city) {
-		this.city = city;
 	}
 }

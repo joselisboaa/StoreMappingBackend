@@ -34,17 +34,13 @@ public class City implements Serializable {
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Store> stores = new ArrayList<Store>();
-    @OneToOne
-    @JsonIgnore
-	private Signature signature;
 
 	public City() {};
     
-	public City(Long id, @NotBlank String name, List<Store> stores, Signature signature) {
+	public City(Long id, String name, List<Store> stores, Signature signature) {
 		this.id = id;
 		this.name = name;
 		this.stores = stores;
-		this.signature = signature;
 	}
 
 	public Long getId() {
@@ -69,13 +65,5 @@ public class City implements Serializable {
 	
 	public void setStores(List<Store> stores) {
 		this.stores = stores;
-	}
-	
-	public Signature getSignature() {
-		return signature;
-	}
-	
-	public void setSignature(Signature signature) {
-		this.signature = signature;
 	}
 }

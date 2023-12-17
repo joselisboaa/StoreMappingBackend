@@ -22,15 +22,18 @@ public class Store implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "city_id")	
+    @JoinColumn(name = "city_id")
     private City city;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "customer_entry_id")
+	private CustomerEntry customerEntry;
 
 	private String latitude;
     private String longitude;
     private String name;
     
     public Store() {};
-        
+
     public Store(Long id, String latitude, String longitude, String name) {
 		this.id = id;
 		this.latitude = latitude;
@@ -44,6 +47,14 @@ public class Store implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public CustomerEntry getCustomerEntry() {
+		return customerEntry;
+	}
+
+	public void setCustomerEntry(CustomerEntry customerEntry) {
+		this.customerEntry = customerEntry;
 	}
 
 	public String getLatitude() {
